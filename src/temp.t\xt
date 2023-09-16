@@ -1,0 +1,12 @@
+/* ================= BREAK POINTS ================= */
+/* For Large Devices */
+@media screen and (max-width:992px) {}
+
+/* For Medium Devices */
+@media screen and (max-width:768px) {}
+
+
+@media screen and (max-width:576px) {}
+
+/* For Small Devices */
+@media screen and (max-width:350px) {}
