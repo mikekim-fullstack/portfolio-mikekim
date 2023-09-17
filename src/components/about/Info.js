@@ -25,8 +25,8 @@ const Info = () => {
         <div className='about-info grid'>
             {
                 experienceData.map((data) => (
-                    <div className="about-box">
-                        <i class={`uil uil-${data.icon} about-icon`}></i>
+                    <div className="about-box" key={data.id}>
+                        <i className={`uil uil-${data.icon} about-icon`}></i>
                         <h3 className="about-title" key={data.id}>{data.title}</h3>
                         <span className="about-subtitle">{data.subTitle}</span>
                     </div >

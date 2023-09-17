@@ -59,10 +59,10 @@ const Header = () => {
                         }
 
                     </ul>
-                    <i class="uil uil-times nav-close" onClick={() => setToggleShowMenu(prev => !prev)}></i>
+                    <i className="uil uil-times nav-close" onClick={() => setToggleShowMenu(prev => !prev)}></i>
                 </div>
                 <div className={`nav-toggle`} onClick={() => setToggleShowMenu(prev => !prev)}>
-                    <i class="uil uil-apps"></i>
+                    <i className="uil uil-apps"></i>
                 </div>
             </nav>
         </header>
