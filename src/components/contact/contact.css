@@ -152,4 +152,38 @@ textarea.contact-form-area {
 }
 
 /* For Small Devices */
-@media screen and (max-width:350px) {}
+@media screen and (max-width:390px) {
+    .contact-info {
+        grid-template-columns: 0.8fr;
+    }
+
+    .contact-form {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (max-width:295px) {
+    .contact-info {
+        grid-template-columns: 0.7fr;
+    }
+
+    .contact-form {
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (max-width:260px) {
+    .contact-info {
+        grid-template-columns: 0.6fr;
+    }
+
+    .contact-form {
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
