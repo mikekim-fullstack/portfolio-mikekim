@@ -34,6 +34,13 @@ const Header = () => {
         },
         {
             id: 6,
+            icon: 'scenery',
+            title: 'Testimonials',
+            href: '#testimonials',
+        },
+
+        {
+            id: 7,
             icon: 'message',
             title: 'Contact',
             href: '#contact',

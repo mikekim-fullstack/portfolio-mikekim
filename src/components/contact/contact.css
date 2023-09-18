@@ -1,0 +1,155 @@
+.contact-container {
+    grid-template-columns: repeat(2, max-content);
+    justify-content: center;
+    column-gap: 6rem;
+    padding-bottom: 3rem;
+}
+
+.contact-title {
+    font-size: var(--h3-font-size);
+    font-weight: var(--font-medium);
+    margin-bottom: var(--mb-1-5);
+    text-align: center;
+}
+
+.contact-info {
+    grid-template-columns: 300px;
+    row-gap: 1rem;
+}
+
+
+
+.contact-card {
+    background-color: var(--container-color);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    text-align: center;
+}
+
+.contact-card-icon {
+    font-size: 2rem;
+    color: var(--title-color);
+    bottom: var(--mb-0-25);
+}
+
+.contact-card-title,
+.contact-card-data {
+    font-size: var(--small-font-size);
+}
+
+.contact-card-title {
+    font-weight: var(--font-medium);
+}
+
+.contact-card-data {
+    display: block;
+    margin-bottom: var(--mb-0-75);
+}
+
+.contact-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 0.25rem;
+    color: var(--text-color);
+    font-size: var(--small-font-size);
+}
+
+.contact-button-icon {
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.contact-button:hover .contact-button-icon {
+    transform: translate(0.25rem)
+}
+
+.contact-form {
+    width: 360px;
+    /* height: 100%; */
+    /* grid-template-columns: initial;
+    row-gap: 2rem; */
+
+}
+
+.contact-form-div {
+    position: relative;
+    margin-bottom: var(--mb-2);
+    height: 4rem;
+}
+
+.contact-form-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    border-radius: 0.75rem;
+    background: none;
+    outline: none;
+    color: var(--text-color);
+    padding: 1.5rem;
+    z-index: 1;
+}
+
+.contact-form-tag {
+    position: absolute;
+    top: -0.75rem;
+    left: 1.25rem;
+    font-size: var(--small-font-size);
+    padding: 0.25rem;
+    background-color: var(--body-color);
+    z-index: 10;
+}
+
+
+.contact-form-div-area {
+    position: relative;
+    margin-bottom: var(--mb-2);
+    height: 11rem;
+}
+
+textarea.contact-form-area {
+    resize: none;
+}
+
+/* ================= BREAK POINTS ================= */
+/* For Large Devices */
+@media screen and (max-width:992px) {
+    .contact-container {
+        column-gap: 3rem;
+    }
+}
+
+/* For Medium Devices */
+@media screen and (max-width:768px) {
+    .contact-container {
+        grid-template-columns: 360px;
+        row-gap: 3rem;
+    }
+
+    .contact-info {
+        grid-template-columns: 1fr;
+        justify-content: center;
+    }
+
+    .contact-form {
+        margin: 0 auto;
+    }
+}
+
+
+@media screen and (max-width:576px) {
+    .contact-info {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form {
+        width: 100%;
+    }
+}
+
+/* For Small Devices */
+@media screen and (max-width:350px) {}
