@@ -23,14 +23,14 @@ const Header = () => {
         {
             id: 4,
             icon: 'briefcase-alt',
-            title: 'Experience',
-            href: '#experience',
+            title: 'Services',
+            href: '#services',
         },
         {
             id: 5,
             icon: 'scenery',
-            title: 'Projects',
-            href: '#projects',
+            title: 'Qualificaton',
+            href: '#qualification',
         },
         {
             id: 6,

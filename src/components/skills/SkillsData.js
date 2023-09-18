@@ -7,7 +7,7 @@ const SkillsData = ({ skillsTitle, skillsData }) => {
         result[chunkIndex].push(item)
         return result
     }, [])
-    console.log('groupData', groupData)
+    // console.log('groupData', groupData)
     return (
         <div className='skills-content'>
             <h3 className="skills-title">{skillsTitle}</h3>
