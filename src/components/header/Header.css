@@ -1,10 +1,20 @@
-.header {
+.header-nav {
     width: 100%;
+    padding: 30px 0;
+    /* padding: 18px 0; */
     position: fixed;
     top: 0;
     left: 0;
     z-index: var(--z-fixed);
     background-color: var(--body-color);
+    transition: 0.32s ease-in-out;
+
+    /* background: linear-gradient(180deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.8)); */
+}
+
+.header-nav.scrolled {
+    padding: 18px 0;
+    background: linear-gradient(180deg, rgba(176, 176, 176, 1), rgba(176, 176, 176, 0.8));
 }
 
 .nav {
@@ -54,7 +64,7 @@
 
 /* For Medium Devices */
 @media screen and (max-width:768px) {
-    .header {
+    .header-nav {
         top: initial;
         bottom: 0;
     }

@@ -48,9 +48,20 @@ const Header = () => {
     ]
     const [activeLink, setActiveLine] = useState(1)
     const [toggleShowMenu, setToggleShowMenu] = useState(false);
+    const [scrolledTop, setScrolledTop] = useState(false)
+    useEffect(() => {
+        const headNav = document.querySelector('.header-nav')
+        const scrollEvent = () => {
+            let scrolled = (window.scrollY > 50) ? true : false
+            setScrolledTop(scrolled)
+
+        }
+        window.addEventListener('scroll', scrollEvent)
+        return () => window.removeEventListener('scroll', scrollEvent)
+    }, [])
     return (
-        <header className='header'>
-            <nav className="nav container">
+        <header className={`header-nav ${scrolledTop ? 'scrolled' : ''}`}>
+            <nav className={`nav container`}>
                 <a href="index.html" className="nav-logo">Mike</a>
                 <div className={`nav-menu ${toggleShowMenu ? 'show-menu' : ''}`}>
                     <ul className="nav-list grid">
