@@ -23,7 +23,7 @@ function App() {
         <Testimonials />
         <Contact />
         <Footer />
-        <ScrollUp />
+        {/* <ScrollUp /> */}
       </main>
     </>
   );

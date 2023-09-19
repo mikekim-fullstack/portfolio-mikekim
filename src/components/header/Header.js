@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useMediaQuery, useMediaQueries } from '@react-hook/media-query'
 import './Header.css'
 const Header = () => {
     const navLists = [
@@ -46,13 +47,29 @@ const Header = () => {
             href: '#contact',
         },
     ]
-    const [activeLink, setActiveLine] = useState(1)
+    const [activeLink, setActiveLink] = useState(1)
     const [toggleShowMenu, setToggleShowMenu] = useState(false);
     const [scrolledTop, setScrolledTop] = useState(false)
+    const [scrollDown, setScrollDown] = useState(false)
+    const matches = useMediaQuery('(max-width: 768px)');
+    let prevScrollY = 0
     useEffect(() => {
         const headNav = document.querySelector('.header-nav')
+
+        // if (headNav) {
+        //     const computedStyle = getComputedStyle(headNav)
+        //     const position = computedStyle.getPropertyValue('position')
+        //     const bottom = computedStyle.getPropertyValue('bottom')
+        //     console.log('computedStyle', position, bottom)
+        // }
         const scrollEvent = () => {
-            let scrolled = (window.scrollY > 50) ? true : false
+            const scrollY = window.scrollY;
+            if ((scrollY - prevScrollY) > 0) setScrollDown(true)
+            else if ((scrollY - prevScrollY) < 0) setScrollDown(false)
+
+            console.log('scrollY', scrollY, 'dir', scrollY - prevScrollY)
+            prevScrollY = scrollY
+            let scrolled = (scrollY > 50) ? true : false
             setScrolledTop(scrolled)
 
         }
@@ -60,7 +77,7 @@ const Header = () => {
         return () => window.removeEventListener('scroll', scrollEvent)
     }, [])
     return (
-        <header className={`header-nav ${scrolledTop ? 'scrolled' : ''}`}>
+        <header className={`header-nav ${scrolledTop && !matches ? 'scrolled' : ''} ${matches && (scrollDown ? '' : 'hidden')}`}>
             <nav className={`nav container`}>
                 <a href="index.html" className="nav-logo">Mike</a>
                 <div className={`nav-menu ${toggleShowMenu ? 'show-menu' : ''}`}>
@@ -68,16 +85,16 @@ const Header = () => {
                         {
                             navLists.map((list) => (
                                 <li key={list.id} className="nav-item">
-                                    <a href={list.href} className={`nav-link ${activeLink === list.id ? 'active-link' : ''}`} >
+                                    <a href={list.href} className={`nav-link ${activeLink === list.id ? 'active-link' : ''}`} onClick={() => setActiveLink(list.id)}>
                                         <i className={`uil uil-${list.icon} nav-icon`}></i>
-                                        {list.title}
+                                        <span className='nav-text'>{list.title}</span>
                                     </a>
                                 </li>
                             ))
                         }
 
                     </ul>
-                    <i className="uil uil-times nav-close" onClick={() => setToggleShowMenu(prev => !prev)}></i>
+                    {/* <i className="uil uil-times nav-close" onClick={() => setToggleShowMenu(prev => !prev)}></i> */}
                 </div>
                 <div className={`nav-toggle`} onClick={() => setToggleShowMenu(prev => !prev)}>
                     <i className="uil uil-apps"></i>
