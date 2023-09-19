@@ -18,7 +18,7 @@
 
 .header-nav.scrolled {
     padding: 18px 0;
-    background: linear-gradient(180deg, rgba(176, 176, 176, 1), rgba(176, 176, 176, 0.8));
+    background: linear-gradient(180deg, rgba(200, 200, 200, 1), rgba(200, 200, 200, 0.6));
 }
 
 .nav {
@@ -112,7 +112,7 @@
         scrollbar-width: none;
 
         padding: 10px 20px;
-        background: linear-gradient(180deg, rgba(176, 176, 176, 1), rgba(176, 176, 176, 0.8));
+        background: linear-gradient(180deg, rgba(200, 200, 200, 1), rgba(200, 200, 200, 0.6));
         justify-content: center;
     }
 

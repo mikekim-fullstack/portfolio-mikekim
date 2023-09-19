@@ -4,7 +4,7 @@
 }
 
 .footer-container {
-    padding: 2rem0 6rem;
+    padding: 2rem 0 0rem;
 }
 
 .footer-title,
@@ -68,7 +68,11 @@
 }
 
 /* For Medium Devices */
-@media screen and (max-width:768px) {}
+@media screen and (max-width:768px) {
+    .footer {
+        padding: 2rem 0 1.5rem;
+    }
+}
 
 
 @media screen and (max-width:576px) {}

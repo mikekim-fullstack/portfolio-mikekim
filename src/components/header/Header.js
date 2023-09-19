@@ -7,44 +7,44 @@ const Header = () => {
             id: 1,
             icon: 'estate',
             title: 'Home',
-            href: '#home',
+            href: 'home',
         },
         {
             id: 2,
             icon: 'user',
             title: 'About',
-            href: '#about',
+            href: 'about',
         },
         {
             id: 3,
             icon: 'file-alt',
             title: 'Skills',
-            href: '#skills',
+            href: 'skills',
         },
         {
             id: 4,
             icon: 'briefcase-alt',
             title: 'Services',
-            href: '#services',
+            href: 'services',
         },
         {
             id: 5,
             icon: 'scenery',
             title: 'Qualificaton',
-            href: '#qualification',
+            href: 'qualification',
         },
         {
             id: 6,
             icon: 'scenery',
             title: 'Testimonials',
-            href: '#testimonials',
+            href: 'testimonials',
         },
 
         {
             id: 7,
             icon: 'message',
             title: 'Contact',
-            href: '#contact',
+            href: 'contact',
         },
     ]
     const [activeLink, setActiveLink] = useState(1)
@@ -54,23 +54,28 @@ const Header = () => {
     const matches = useMediaQuery('(max-width: 768px)');
     let prevScrollY = 0
     useEffect(() => {
-        const headNav = document.querySelector('.header-nav')
+        const menuLists = []
+        navLists.forEach((list) => menuLists.push(document.getElementById(list.href)))
+        console.log(menuLists)
 
-        // if (headNav) {
-        //     const computedStyle = getComputedStyle(headNav)
-        //     const position = computedStyle.getPropertyValue('position')
-        //     const bottom = computedStyle.getPropertyValue('bottom')
-        //     console.log('computedStyle', position, bottom)
-        // }
+        const headNav = document.querySelector('.header-nav')
         const scrollEvent = () => {
             const scrollY = window.scrollY;
             if ((scrollY - prevScrollY) > 0) setScrollDown(true)
             else if ((scrollY - prevScrollY) < 0) setScrollDown(false)
 
-            console.log('scrollY', scrollY, 'dir', scrollY - prevScrollY)
+            // console.log('scrollY', scrollY, 'dir', scrollY - prevScrollY)
             prevScrollY = scrollY
             let scrolled = (scrollY > 50) ? true : false
             setScrolledTop(scrolled)
+
+            // ----------- Make the current section active in menu... ----------
+            for (let i = menuLists.length - 1; i >= 0; i--) {
+                if (scrollY >= menuLists[i].offsetTop + 100) {
+                    setActiveLink(navLists[i].id)
+                    break;
+                }
+            }
 
         }
         window.addEventListener('scroll', scrollEvent)
@@ -85,7 +90,7 @@ const Header = () => {
                         {
                             navLists.map((list) => (
                                 <li key={list.id} className="nav-item">
-                                    <a href={list.href} className={`nav-link ${activeLink === list.id ? 'active-link' : ''}`} onClick={() => setActiveLink(list.id)}>
+                                    <a href={`#${list.href}`} className={`nav-link ${activeLink === list.id ? 'active-link' : ''}`} onClick={() => setActiveLink(list.id)}>
                                         <i className={`uil uil-${list.icon} nav-icon`}></i>
                                         <span className='nav-text'>{list.title}</span>
                                     </a>
